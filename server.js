@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
 // app.use(express.static("./app/public"))
 
+// TEST ROUTE
+app.get("/", function(req, res) {
+    res.send("HELLO WORLD");
+  });
 console.log("hello world")
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
