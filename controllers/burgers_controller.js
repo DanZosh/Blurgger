@@ -1,14 +1,16 @@
 const express = require("express");
 var router = express.Router(); //not sure why this is here but its in the cats example
-const burger = require("../models/burger");
+const burger = require("../models/burger.js");
 
 
 router.get("/", function(req,res){
-    burger.all(function(data){
-        var handlebarObject = {
-            burgers:data
+    burger.all(function(result){
+        var hbsObject = {
+            burgers:result
         };
-        console.log(handlebarObject);
-        res.render("index", handlebarObject)
+        console.log(hbsObject);
+        res.render("index", hbsObject)
     })
 })
+
+module.exports = router;

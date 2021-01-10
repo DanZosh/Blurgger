@@ -1,16 +1,16 @@
-const orm = require("../config/orm");
+const orm = require("../config/orm.js");
 
 // * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
 
 
-const burgerStuff = {
-    selectAll:function(cb){
-        orm.selectAll("burgers", function(res) {
-            callback(res);
+const burger = {
+    all:function(cbController){
+        orm.all("burgers", function(result) {
+            cbController(result);
         });   
     }
-    
+    //insert create here
 }
 
 // * Export at the end of the `burger.js` file.
-module.exports = burgerStuff;
+module.exports = burger;
