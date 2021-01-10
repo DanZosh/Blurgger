@@ -4,6 +4,7 @@ const burger = require("../models/burger.js");
 
 
 router.get("/", function(req,res){
+    console.log("controller triggered")
     burger.all(function(result){
         var hbsObject = {
             burgers:result

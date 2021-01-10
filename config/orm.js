@@ -66,9 +66,12 @@ function printQuestionMarks(num) {
 
     // Object for all our SQL statement functions.
 const orm = {
-    all: function(cbModel) {
-        var queryString = "SELECT * FROM burgers";
+    all: function(tableInput, cbModel) {
+        console.log("orm triggered")
+        var queryString =  "SELECT * FROM " + tableInput + ";";
+        console.log("THIS IS THE queryString: ", queryString)
         connection.query(queryString, function(err, result) {
+            console.log("THIS IS THE connection.query result: ", result)
             if (err) {
                 console.log("THIS IS THE ERROR: ", err)
             throw err;
@@ -76,7 +79,7 @@ const orm = {
             }
             cbModel(result);
         });
-        }
+    }
 
 }
 module.exports = orm;

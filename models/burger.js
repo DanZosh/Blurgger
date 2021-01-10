@@ -5,6 +5,7 @@ const orm = require("../config/orm.js");
 
 const burger = {
     all:function(cbController){
+        console.log("model triggered")
         orm.all("burgers", function(result) {
             cbController(result);
         });   
