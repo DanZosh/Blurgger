@@ -5,7 +5,7 @@ $(function() {
     $(".devour").on("click", function(event) {
       event.preventDefault();
       var id = $(this).data("id");
-        console.log("id: ", id)
+        console.log("devoured id: ", id)
       var newDevouredState = {devoured: 1};
       // Send the PUT request.
       $.ajax("/api/burgers/" + id, {

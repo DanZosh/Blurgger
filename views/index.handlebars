@@ -1,36 +1,71 @@
 
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+     <h1>Blurgers</h1>
+     <p>Your Burger Logger</p>
+  </div>
+ 
 
-<h2>Blurgers: Your Burger Logger</h2>
+</div>
+
+
 <img src="/burger/public/assets/img/burger.jpg" alt="hamburger">
-<h2>Undevourered burgers</h2>
-<ul>
-  {{#each blurgers}}
-    {{#if devoured}}
-      <li>{{id}} {{burger_name}}</li> 
-    {{/if}}
-  {{/each}}
-</ul>
-<h2>Devoured burgers</h2>
-<ul>
-  {{#each blurgers}}
-    {{#unless devoured}}
-    <div>
-      <li>{{id}} {{burger_name}}</li> 
-      <button class="devour" data-id="{{this.id}}" data-isDevoured="{{this.devoured}}">Devour Me!</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+
+      <div class="card" >
+        <div class="card-header">
+          <h2>Devourered Blurgers</h2>
+        </div>
+      </div>
+      
+        <ul class="list-group list-group-flush">
+          {{#each burgers}}
+            {{#if devoured}}
+              <li class="list-group-item">{{this.id}} {{this.burger_name}}</li> 
+            {{/if}}
+          {{/each}}
+        </ul>
     </div>
 
-    {{/unless}}
-  {{/each}}
-</ul>
+    <div class="col-sm">
 
-<h2>Add a Burger to be Logged</h2>
+            <div class="card">
+        <div class="card-header">
+          <h2>Undevourered Blurgers</h2>
+        </div>
+      </div>
+
+        <ul class="list-group list-group-flush">
+          {{#each burgers}}
+            {{#unless devoured}}
+            
+              <li class="list-group-item">{{this.id}} {{this.burger_name}}
+              <button type="button" class="devour btn btn-warning" id="devourButton" data-id="{{this.id}}" data-isDevoured="{{this.devoured}}">Devour Me!</button>
+            </li> 
+
+            {{/unless}}
+          {{/each}}
+        </ul>
+    </div>
+
+  </div>
+</div>
+
+<div id="insert-card">
+  <h3>Add a Burger to be Logged</h3>
 <form class="create-form">
 
   <div class="form-group">
     <label for="burger">Burger Name:</label>
     <input type="text" id="insertBurger" name="burger_name">
+    <button class="btn btn-success" type="submit">Blurger It</button>
   </div>
 
-  <button type="submit">Blurger It</button>
+  
+</div>
+
 </form>

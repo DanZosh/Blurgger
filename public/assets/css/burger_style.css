@@ -1,8 +1,30 @@
 
-    li {
-      background-color: brown;
-      margin-bottom: 10px;
-      padding: 10px;
-      width: 50%;
+    body {
+      background-color: rgb(111, 46, 5);
+      /* margin-bottom: 10px; */
+      /* padding: 10px; */
+      /* width: 50%; */
       font-family: sans-serif;
     }
+
+.card-header{
+    background-color: wheat;
+}
+
+li{
+    background-color: brown;
+}
+
+.jumbotron{
+    padding:20px;
+    background-color: wheat;
+}
+
+#insert-card{
+    align-items: center;
+    background-color: wheat;
+    /* padding-left:20px;
+    padding-top: 20px; */
+    margin-top: 10px;
+    padding:20px
+}

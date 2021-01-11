@@ -7,7 +7,7 @@ router.get("/", function(req,res){
         console.log("GET controller triggered")
     burger.all(function(result){ //results are from the cbController (still DB content) that gets rendered
         var hbsObject = {
-            blurgers:result 
+            burgers:result 
         };
         console.log(hbsObject);
         res.render("index", hbsObject)
