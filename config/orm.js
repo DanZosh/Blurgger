@@ -11,6 +11,7 @@ function printQuestionMarks(num) {
   }
   
   // Helper function to convert object key/value pairs to SQL syntax
+  //these get returned to create the query string in the model.
   function objToSql(ob) {
     var arr = [];
   
@@ -33,53 +34,43 @@ function printQuestionMarks(num) {
     return arr.toString();
   }
 
-//i dont know what the guts for this are, heres from the read me
-
-// * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
-
-// * `selectAll()`
-// * `insertOne()`
-// * `updateOne()`
-
-// selectAll(){
-//     connection.query("SELECT * FROM burgers", function(err,res){
-//        if (err) throw err;
-//        return res;
-//     });
-// }
-
-// insertOne(data){
-//     connection.query("INSERT INTO burgers SET ?",data, function(err,res){
-//         if (err) throw err;
-//         return res;
-//     });
-// }
-
-// updateOne(data){
-//     connection.query("UPDATE burgers SET ? WHERE ?",data, function(err,res){
-//         if (err) throw err;
-//         return res;
-//     }); 
-
-    // * Export the ORM object in `module.exports`.
-
-
     // Object for all our SQL statement functions.
 const orm = {
-    all: function(tableInput, cbModel) {
-        console.log("orm triggered")
+    selectAll: function(tableInput, cbModel) {
+        console.log("GET orm triggered")
         var queryString =  "SELECT * FROM " + tableInput + ";";
-        console.log("THIS IS THE queryString: ", queryString)
+            // console.log("THIS IS THE queryString: ", queryString)
         connection.query(queryString, function(err, result) {
-            console.log("THIS IS THE connection.query result: ", result)
+            // console.log("THIS IS THE connection.query result: ", result)
             if (err) {
                 console.log("THIS IS THE ERROR: ", err)
             throw err;
-            // connection.end();
             }
             cbModel(result);
         });
-    }
+    },
+    insertOne: function(table, cols, vals, cbCreateModel){
+        console.log("CREATE model triggered")
+        console.log("table: ", table)
+        console.log("cols: ", cols)
+        console.log("vals: ", vals)
+        //build out this connection.query; ultimately it should read "INSERT INTO burgers (burger_name, devoured) VALUES (?,?)"
+    var queryString = "INSERT INTO " + table;
 
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
+        console.log(queryString);
+    connection.query(queryString, vals, function(err,result){
+        if(err) {
+            throw error;
+        }
+        cbCreateController(result);
+    });
+}
 }
 module.exports = orm;

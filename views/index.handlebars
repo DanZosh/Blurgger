@@ -1,4 +1,4 @@
-<style media="screen">
+{{!-- <style media="screen">
   li {
     background-color: brown;
     margin-bottom: 10px;
@@ -6,23 +6,24 @@
     width: 50%;
     font-family: sans-serif;
   }
-</style>
+</style> --}}
 
 
 <h2>Blurgers: Your Burger Logger</h2>
-
+<img src="/burger/public/assets/img/burger.jpg" alt="hamburger">
+<h2>Undevourered burgers</h2>
 <ul>
-  {{#each burgers}}
+  {{#each blurgers}}
     {{#if devoured}}
-      <li>{{id}}{{burger}}</li> 
+      <li>{{id}} {{burger_name}}</li> 
     {{/if}}
   {{/each}}
 </ul>
-
+<h2>Devoured burgers</h2>
 <ul>
-  {{#each burgers}}
+  {{#each blurgers}}
     {{#unless devoured}}
-      <li>{{id}}{{burger}}</li> 
+      <li>{{id}} {{burger_name}}</li> 
       <button data-burgerid="{{this.id}}" class="devour">Devour Me!</button>
     {{/unless}}
   {{/each}}
@@ -33,8 +34,8 @@
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <input type="text" id="insertBurger" name="name">
   </div>
 
-  <button type="submit">Blurger</button>
+  <button type="submit">Blurger It</button>
 </form>
