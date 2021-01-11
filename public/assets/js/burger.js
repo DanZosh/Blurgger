@@ -1,25 +1,26 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
+
+//PUT REQUEST
 $(function() {
-    // $(".change-sleep").on("click", function(event) {
-    //   var id = $(this).data("id");
-    //   var newSleep = $(this).data("newsleep");
+    $(".devour").on("click", function(event) {
+      var id = $(this).data("id");
+      var isDevoured = $(this).data("isDevoured");
   
-    //   var newSleepState = {
-    //     sleepy: newSleep
-    //   };
-  
-    //   // Send the PUT request.
-    //   $.ajax("/api/cats/" + id, {
-    //     type: "PUT",
-    //     data: newSleepState
-    //   }).then(
-    //     function() {
-    //       console.log("changed sleep to", newSleep);
-    //       // Reload the page to get the updated list
-    //       location.reload();
-    //     }
-    //   );
-    // });
+      var newDevouredState = {
+        devoured: isDevoured
+      };
+      // Send the PUT request.
+      $.ajax("/api/burgers/" + id, {
+        type: "PUT",
+        data: newDevouredState
+      }).then(
+        function() {
+          console.log("changed devoured to", isDevoured);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
   
 
     //POST REQUEST
@@ -31,7 +32,6 @@ $(function() {
         name: $("#insertBurger").val().trim(),
         devoured: 0
       }; //this is the req.body
-  
       // Send the POST request.
       $.ajax("/api/burgers", {
         type: "POST",
