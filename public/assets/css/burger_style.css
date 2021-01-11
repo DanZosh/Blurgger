@@ -18,6 +18,7 @@ li{
 .jumbotron{
     padding:20px;
     background-color: wheat;
+    border-bottom: 10px solid green;
 }
 
 #insert-card{
@@ -26,5 +27,19 @@ li{
     /* padding-left:20px;
     padding-top: 20px; */
     margin-top: 10px;
-    padding:20px
+    padding:20px;
+    border-top: 10px solid red;
 }
+.list-group-item{
+    border-color: brown;
+    /* border: 3px solid, */
+}
+.hero {
+    /* height: 175px;
+    width: 100%; */
+    margin: 25px;
+    background-image: url("/img/burger.jpg");
+    /* background-size:cover resizes the background image to cover the entire container, even if it has to stretch the image or cut a little bit off one of the edges */
+    background-size: cover;
+    background-position: center;
+  }
