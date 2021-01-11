@@ -24,14 +24,14 @@ router.post("/api/burgers", function(req, res){
             function(result){
             // console.log(req.body)
         console.log("Where is this boomerang?")
-        console.log("Create burger results: ", results)
+        console.log("Create burger results: ", result)
         res.json({
             id: result.insertID
         })
     });
 })
 
-router.put("api/burgers/:id", function (req, res){
+router.put("/api/burgers/:id", function (req, res){
     var condition = "id = " + req.params.id; //this is the id of the burger clicked, should read "id = `x`" to be passed into router.put
         console.log("PUT controller triggered")
         console.log("condition: ", condition)

@@ -11,7 +11,7 @@
 
 <div class="hero"></div>
 {{!-- <img src="/burger/public/assets/img/burger.jpg" alt="hamburger"> --}}
-<img src="/img/burger.jpg" alt="hamburger">
+{{!-- <img src="/assets/img/burger.jpg" alt="hamburger"> --}}
 
 <div class="container">
   <div class="row">
@@ -58,15 +58,18 @@
 
 <div id="insert-card">
   <h3>Add a Burger to be Logged</h3>
-<form class="create-form">
+<form 
+{{!-- class="create-form" --}}
+>
 
   <div class="form-group">
     <label for="burger">Burger Name:</label>
     <input type="text" id="insertBurger" name="burger_name">
-    <button class="btn btn-success" type="submit">Blurger It</button>
+  
   </div>
-
+  
   
 </div>
 
 </form>
+<button class="btn btn-success create-form once" type="click">Blurger It</button>

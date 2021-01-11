@@ -4,6 +4,7 @@
 $(function() {
     $(".devour").on("click", function(event) {
       event.preventDefault();
+      // event.stopPropagation();
       var id = $(this).data("id");
         console.log("devoured id: ", id)
       var newDevouredState = {devoured: 1};
@@ -22,10 +23,12 @@ $(function() {
   
 
     //POST REQUEST
-    $(".create-form").on("submit", function(event) {
+    $(".once").on("click", function(event) {
       // Make sure to preventDefault on a submit event.
+      
       event.preventDefault();
-  
+      console.log("create-form click")
+      // event.stopPropagation();
       var newBurger = {
         burger_name: $("#insertBurger").val().trim(),
         devoured: 0
@@ -36,9 +39,10 @@ $(function() {
         data: newBurger
       }).then(
         function() {
-          console.log("Blurgered!");
+          console.log("Blurgered!");//browser console
           // Reload the page to get the updated list
           location.reload();
+          // return;
         }
       );
     });
