@@ -20,7 +20,7 @@ router.post("/api/burgers", function(req, res){
         console.log("POST controller triggered")
     burger.create(
             ["burger_name", "devoured"], //columns in table
-            [req.body.name, req.body.devoured], //values from the user in put in public/assets/js/burger.js
+            [req.body.burger_name, req.body.devoured], //values from the user in put in public/assets/js/burger.js
             function(result){
             // console.log(req.body)
         console.log("Where is this boomerang?")

@@ -71,7 +71,10 @@ const orm = {
                 queryString, 
                 vals, 
                 function(err,result){
+                    console.log(result)
+                    console.log("query connection made?")
                     if(err) {throw error;}
+                    
                     cbCreateController(result);
                 }
             );
