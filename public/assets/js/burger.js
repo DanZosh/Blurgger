@@ -4,7 +4,7 @@
 $(function() {
     $(".devour").on("click", function(event) {
       event.preventDefault();
-      // event.stopPropagation();
+      
       var id = $(this).data("id");
         console.log("devoured id: ", id)
       var newDevouredState = {devoured: 1};
@@ -27,6 +27,7 @@ $(function() {
       // Make sure to preventDefault on a submit event.
       
       event.preventDefault();
+      event.stopImmediatePropagation();
       console.log("create-form click")
       // event.stopPropagation();
       var newBurger = {
